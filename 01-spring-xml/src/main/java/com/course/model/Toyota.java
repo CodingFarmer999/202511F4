@@ -4,6 +4,10 @@ public class Toyota {
 	
 	private Engine engine;
 	
+	public Toyota() {
+		
+	}
+			
 	public Toyota(Engine engine) {
 		this.engine = engine;
 	}
