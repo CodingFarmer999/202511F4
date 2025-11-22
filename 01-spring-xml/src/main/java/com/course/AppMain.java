@@ -1,0 +1,18 @@
+package com.course;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.course.config.AppConfig;
+
+public class AppMain {
+
+	public static void main(String[] args) {
+		ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+
+		for (String name : ctx.getBeanDefinitionNames()) {
+			System.out.println(name);
+		}
+	}
+
+}
