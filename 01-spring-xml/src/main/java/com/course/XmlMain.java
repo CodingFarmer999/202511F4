@@ -14,6 +14,8 @@ public class XmlMain {
 			System.out.println(name);
 		}
 		
+		System.out.println("============================");
+		
 		Toyota car = (Toyota) ctx.getBean("toyota");
 		car.move();
 	}
