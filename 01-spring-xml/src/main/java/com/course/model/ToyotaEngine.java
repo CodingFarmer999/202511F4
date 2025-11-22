@@ -1,0 +1,11 @@
+package com.course.model;
+
+public class ToyotaEngine implements Engine {
+
+	@Override
+	public void start() {
+		System.out.println("ToyotaEngine...");
+	}
+
+
+}
