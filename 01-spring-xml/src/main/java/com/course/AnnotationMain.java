@@ -6,6 +6,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.course.config.AnnotationConfig;
 import com.course.model.Benz;
 import com.course.model.Bmw;
+import com.course.model.SingletonBean;
 
 public class AnnotationMain {
 
@@ -33,6 +34,18 @@ public class AnnotationMain {
 		System.out.println("c1:" + c1);
 		System.out.println("c2:" + c2);
 		System.out.println(c1.equals(c2));
+		
+		
+		System.out.println("===============================");
+		
+		
+		// SingletonBean sBean = new SingletonBean();
+		SingletonBean sBean1 = SingletonBean.getInstance();
+		SingletonBean sBean2 = SingletonBean.getInstance();
+		System.out.println("sBean1:" + sBean1);
+		System.out.println("sBean2:" + sBean2);
+		System.out.println(sBean1.equals(sBean2));
+		
 	}
 
 }
