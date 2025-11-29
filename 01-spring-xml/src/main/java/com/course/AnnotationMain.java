@@ -24,6 +24,15 @@ public class AnnotationMain {
 		Bmw car2 = ctx.getBean("bmw", Bmw.class);
 		car2.move();
 		
+		
+		System.out.println("===============================");
+		
+		Benz c1 = ctx.getBean("benz", Benz.class);
+		Benz c2 = ctx.getBean("benz", Benz.class);
+		
+		System.out.println("c1:" + c1);
+		System.out.println("c2:" + c2);
+		System.out.println(c1.equals(c2));
 	}
 
 }
