@@ -10,7 +10,7 @@ import com.course.model.ToyotaEngine;
 @Configuration
 public class AppConfig {
 
-	@Bean(name = {"benz", "toyota"})
+	@Bean(name = {"benz2", "toyota"})
 	public Toyota toyota(Engine engine) {
 		return new Toyota(engine);
 	}
