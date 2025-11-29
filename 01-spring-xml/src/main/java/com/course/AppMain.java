@@ -16,6 +16,7 @@ public class AppMain {
 		}
 		
 		Toyota car = ctx.getBean("toyota", Toyota.class);
+		// TEST
 		car.move();
 	}
 
