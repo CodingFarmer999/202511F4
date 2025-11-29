@@ -1,19 +1,18 @@
 package com.course.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Bmw {
 	
+	@Autowired
 	private Engine engine;
-	
-	public Bmw() {
-		
-	}
-			
-	public Bmw(Engine engine) {
-		this.engine = engine;
-	}
+
+//	@Autowired
+//	public void setEngine(Engine engine) {
+//		this.engine = engine;
+//	}
 
 	public void move() {
 		engine.start();

@@ -7,10 +7,6 @@ import org.springframework.stereotype.Component;
 public class Benz {
 	
 	private Engine engine;
-	
-	public Benz() {
-		
-	}
 			
 	@Autowired
 	public Benz(Engine engine) {

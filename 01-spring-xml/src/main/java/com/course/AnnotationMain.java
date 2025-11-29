@@ -5,6 +5,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.course.config.AnnotationConfig;
 import com.course.model.Benz;
+import com.course.model.Bmw;
 
 public class AnnotationMain {
 
@@ -14,8 +15,14 @@ public class AnnotationMain {
 			System.out.println(name);
 		}
 		
+		System.out.println("===============================");
+		
 		Benz car = ctx.getBean("benz", Benz.class);
 		car.move();
+		
+		System.out.println("===============================");
+		Bmw car2 = ctx.getBean("bmw", Bmw.class);
+		car2.move();
 		
 	}
 
