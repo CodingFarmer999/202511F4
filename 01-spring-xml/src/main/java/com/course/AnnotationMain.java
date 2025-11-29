@@ -6,15 +6,16 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.course.config.AnnotationConfig;
 import com.course.model.Benz;
 import com.course.model.Bmw;
+import com.course.model.LazyBean;
 import com.course.model.SingletonBean;
 
 public class AnnotationMain {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(AnnotationConfig.class);
-		for (String name : ctx.getBeanDefinitionNames()) {
-			System.out.println(name);
-		}
+//		for (String name : ctx.getBeanDefinitionNames()) {
+//			System.out.println(name);
+//		}
 		
 		System.out.println("===============================");
 		
@@ -45,6 +46,12 @@ public class AnnotationMain {
 		System.out.println("sBean1:" + sBean1);
 		System.out.println("sBean2:" + sBean2);
 		System.out.println(sBean1.equals(sBean2));
+		
+		
+		System.out.println("===============================");
+		
+		LazyBean lazyBean = ctx.getBean(LazyBean.class);
+		lazyBean.show();
 		
 	}
 
