@@ -30,10 +30,13 @@ public class Application {
 		logger.warn("WARN");
 		logger.error("ERROR");
 		
+		String errerMessage = "出事了~~~~~";
+		logger.error("ERROR, {}, xxxx={}", errerMessage, "TEST");
+		
 		try {
 			FileInputStream fis = new FileInputStream("");
 		} catch (FileNotFoundException e) {
-			logger.error("FileNotFoundException");
+			logger.error("FileNotFoundException", e);
 		}
 		Toyota car = ctx.getBean(Toyota.class);
 		car.move();
