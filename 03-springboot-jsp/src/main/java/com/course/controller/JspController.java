@@ -59,4 +59,9 @@ public class JspController {
 		System.out.println("user:" + user);
 		return "loginSuccess";
 	}
+	
+	@ModelAttribute("companyName")
+	public String getCompanyName() {
+		return "三麗鷗";
+	}
 }

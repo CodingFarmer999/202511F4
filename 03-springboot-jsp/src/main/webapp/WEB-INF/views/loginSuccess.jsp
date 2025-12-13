@@ -8,5 +8,7 @@
 </head>
 <body>
 <h1>${user} 登入成功</h1>
+
+<h2>公司名稱: ${companyName}</h2>
 </body>
 </html>
