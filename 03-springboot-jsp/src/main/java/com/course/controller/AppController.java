@@ -19,4 +19,25 @@ public class AppController {
 		return "loginSuccess";
 	}
 	
+	// "?" 匹配一個字元
+	// http://localhost:8080/pattern/home1, http://localhost:8080/pattern/home2
+	@GetMapping("/pattern/home?")
+	public String home1() {
+	    return "home";
+	}
+
+	// "*" 匹配多個字元 
+	// http://localhost:8080/pattern/home1, http://localhost:8080/pattern/home100
+	@GetMapping("/pattern/home*")
+	public String home2() {
+	    return "home";
+	}
+
+	// "**" 匹配零個或多個路徑，路徑名稱任意
+	// http://localhost:8080/pattern/home1, http://localhost:8080/pattern/home/abc
+	@GetMapping("/pattern/**")
+	public String home3() {
+	    return "home";
+	}
+	
 }
