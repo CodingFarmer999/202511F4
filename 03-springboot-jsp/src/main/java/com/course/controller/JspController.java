@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.course.model.UserVo;
 
@@ -47,6 +48,16 @@ public class JspController {
 		System.out.println("categoryCode:" + categoryCode);
 		System.out.println("productCode:" + productCode);
 		return "loginSuccess";
+	}
+	
+	@GetMapping("/mv/{c1}/goodsDetail/{productCode}")
+	public ModelAndView pathVariableMv(@PathVariable String productCode, @PathVariable("c1") String categoryCode) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("user", productCode);
+		mv.setViewName("loginSuccess");
+		System.out.println("categoryCode:" + categoryCode);
+		System.out.println("productCode:" + productCode);
+		return mv;
 	}
 	
 	// 將正則表達式作為名稱為 "name" 的路徑變數進行匹配
