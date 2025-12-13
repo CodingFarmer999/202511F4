@@ -27,7 +27,7 @@ public class JspController {
 	}
 
 	@PostMapping("/login")
-	public String login(@RequestParam String username, @RequestParam String password) {
+	public String login(@RequestParam(required = false) String username, @RequestParam(value = "password2") String password) {
 		
 	    System.out.println("USERNAME:" + username);
 	    System.out.println("PWD:" + password);

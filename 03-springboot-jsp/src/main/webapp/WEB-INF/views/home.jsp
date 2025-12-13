@@ -20,9 +20,9 @@
 
 <h2>RequestParam</h2>
 <form action="login" method="POST">
-	帳號：<input type="text" name="username" />
+	帳號：<input type="text" name="username2" />
 	<br/>
-	密碼：<input type="text"name="password" />
+	密碼：<input type="text"name="password2" />
 	<br/>
 	<button type="submit">送出</button>
 </form>
