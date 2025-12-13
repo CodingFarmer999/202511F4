@@ -27,6 +27,7 @@
 	<button type="submit">送出</button>
 </form>
 
+<hr/>
 
 <form action="hobby" method="POST">
     暱稱: <input type="text" name="nickname"/> <br>
