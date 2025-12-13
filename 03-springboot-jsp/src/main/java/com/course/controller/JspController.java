@@ -1,6 +1,7 @@
 package com.course.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -63,5 +64,14 @@ public class JspController {
 	@ModelAttribute("companyName")
 	public String getCompanyName() {
 		return "三麗鷗";
+	}
+	
+	@GetMapping("/testModel")
+	public String testModel(Model model) {
+		System.out.println("testModel:");
+		model.addAttribute("petName", "Snoopy");
+		model.addAttribute("petAddress", "中正路30號");
+		model.addAttribute("petHobby", "Snoopy3");
+		return "loginSuccess";
 	}
 }

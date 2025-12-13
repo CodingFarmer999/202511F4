@@ -39,5 +39,10 @@
     <br>
     <input type="submit" />
 </form>
+
+<hr/>
+
+<a href="testModel">TestModel</a>
+
 </body>
 </html>

@@ -10,5 +10,11 @@
 <h1>${user} 登入成功</h1>
 
 <h2>公司名稱: ${companyName}</h2>
+
+<h2>Pet Name: ${petName}</h2>
+
+<h2>Pet Address: ${petAddress}</h2>
+
+<h2>Pet Hobby: ${petHobby}</h2>
 </body>
 </html>
