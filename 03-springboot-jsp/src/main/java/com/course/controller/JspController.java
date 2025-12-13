@@ -32,10 +32,12 @@ public class JspController {
 	}
 
 	@PostMapping("/login")
-	public String login(@RequestParam(name = "username2", required = false, defaultValue = "Hello Kitty") String username, @RequestParam(value = "password2") String password) {
+	public String login(@RequestParam(name = "username2", required = false, defaultValue = "Hello Kitty") String username, 
+			@RequestParam(value = "password2") String password, Model model) {
 		
 	    System.out.println("USERNAME:" + username);
 	    System.out.println("PWD:" + password);
+	    model.addAttribute("user", "!!!! " + username + " !!!");
 		return "loginSuccess";
 	}
 	
