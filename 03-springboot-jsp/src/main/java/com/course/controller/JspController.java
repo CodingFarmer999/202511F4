@@ -43,5 +43,11 @@ public class JspController {
 		return "loginSuccess";
 	}
 	
-
+	// 將正則表達式作為名稱為 "name" 的路徑變數進行匹配
+	@GetMapping("/user/regex/{name:[a-zA-Z]+}")
+	public String pathVariableRegex(@PathVariable("name") String username) {
+		
+		System.out.println("pathVariableRegex username:" + username);
+	    return "loginSuccess";
+	}
 }
