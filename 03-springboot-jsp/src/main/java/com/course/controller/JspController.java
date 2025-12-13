@@ -36,16 +36,12 @@ public class JspController {
 	}
 	
 	// @GetMapping("/TP/TP0005043/goodsDetail/TP00050430000466")
-	@GetMapping("/TP/TP0005043/goodsDetail/{productCode}")
-	public String test(@PathVariable String productCode) {
+	@GetMapping("/TP/{c1}/goodsDetail/{productCode}")
+	public String pathVariable(@PathVariable String productCode, @PathVariable("c1") String categoryCode) {
+		System.out.println("categoryCode:" + categoryCode);
 		System.out.println("productCode:" + productCode);
 		return "loginSuccess";
 	}
 	
 
-	//TP/TP0004325/goodsDetail/TP00043250000051
-	@GetMapping("TP/TP0004325/goodsDetail/TP00043250000051")
-	public String test2() {
-		return "loginSuccess";
-	}
 }
