@@ -16,5 +16,12 @@
 <h2>Pet Address: ${petAddress}</h2>
 
 <h2>Pet Hobby: ${petHobby}</h2>
+
+<form action="/upload" method="POST" enctype="multipart/form-data">
+    暱稱：<input type="text" name="nickname" /> <br/>
+    上傳照片：<input type="file" name="photo" /> <br/>
+    <button type="submit">送出</button>
+</form>
+
 </body>
 </html>

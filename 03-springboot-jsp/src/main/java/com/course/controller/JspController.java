@@ -87,4 +87,9 @@ public class JspController {
 		model.addAttribute("petHobby", "Snoopy3");
 		return "loginSuccess";
 	}
+	
+	@PostMapping(value = "/upload")
+	public String upload(@ModelAttribute UserVo userVo) {
+		return "home";
+	}
 }
