@@ -2,6 +2,7 @@ package com.course.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -31,6 +32,20 @@ public class JspController {
 		
 	    System.out.println("USERNAME:" + username);
 	    System.out.println("PWD:" + password);
+		return "loginSuccess";
+	}
+	
+	// @GetMapping("/TP/TP0005043/goodsDetail/TP00050430000466")
+	@GetMapping("/TP/TP0005043/goodsDetail/{productCode}")
+	public String test(@PathVariable String productCode) {
+		System.out.println("productCode:" + productCode);
+		return "loginSuccess";
+	}
+	
+
+	//TP/TP0004325/goodsDetail/TP00043250000051
+	@GetMapping("TP/TP0004325/goodsDetail/TP00043250000051")
+	public String test2() {
 		return "loginSuccess";
 	}
 }
