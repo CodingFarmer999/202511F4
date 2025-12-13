@@ -107,7 +107,8 @@ public class JspController {
 			System.out.println("大小：" + file.getSize());
 
 			// 儲存檔案
-			Path path = Paths.get("C:\\Users\\student\\images\\" + file.getOriginalFilename());
+			// Path path = Paths.get("C:\\Users\\student\\images\\" + file.getOriginalFilename());
+			Path path = Paths.get("C:", "Users", "student", "images" ,file.getOriginalFilename());
 			try {
 				Files.copy(file.getInputStream(), path);
 			} catch (IOException e) {
