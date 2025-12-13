@@ -14,10 +14,10 @@ public class AppController {
 	}
 	// URL: /login
 	// @RequestMapping(value = "/login", method = RequestMethod.GET)
-	@GetMapping("/login")
-	public String login() {
-		return "loginSuccess";
-	}
+//	@GetMapping("/login")
+//	public String login() {
+//		return "loginSuccess";
+//	}
 	
 	// "?" 匹配一個字元
 	// http://localhost:8080/pattern/home1, http://localhost:8080/pattern/home2
