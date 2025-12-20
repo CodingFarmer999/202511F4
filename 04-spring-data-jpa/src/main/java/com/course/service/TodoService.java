@@ -2,21 +2,42 @@ package com.course.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.course.dao.TodoDao;
 import com.course.entity.TodoEntity;
 import com.course.repository.TodoRepository;
 
 @Service
 public class TodoService {
 
+	@Autowired
 	private TodoRepository todoRepository;
 	
+	/**
+	 * 查詢全部
+	 * @return
+	 */
+	public List<TodoEntity> getAllTodo() {
+		return todoRepository.findAll();
+	}
 	
-//	private TodoDao todoDao;
+	/**
+	 * 依狀態查詢
+	 * @param status
+	 * @return
+	 */
+	public List<TodoEntity> getTodoByStatus(Integer status) {
+		return todoRepository.findByStatus(status);
+	}
 	
-//	public List<TodoEntity> findAll() {
-//		return todoDao.findAll();
-//	}
+	/**
+	 * 依名稱與狀態查詢
+	 * @param title
+	 * @param status
+	 * @return
+	 */
+	public List<TodoEntity> getTodoByTitleAndStatus(String title, Integer status) {
+		return todoRepository.findByTitleAndStatus(title, status);
+	}
 }
