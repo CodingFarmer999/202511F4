@@ -8,5 +8,13 @@
 </head>
 <body>
 <h1>註冊頁</h1>
+
+<form action="" method="">
+	帳號：<input type="text" name="username" /><br/>
+	密碼：<input type="text" name="password" /><br/>
+	E-Mail：<input type="text" name="email" /><br/>
+	上傳照片：<input type="file" name="photo" /> <br/>
+	<input type="submit" value="註冊" />
+</form>
 </body>
 </html>
