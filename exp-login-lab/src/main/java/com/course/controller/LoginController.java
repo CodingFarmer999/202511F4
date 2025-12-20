@@ -40,6 +40,12 @@ public class LoginController {
 	@PostMapping("/register")
 	public String register(@ModelAttribute UserVo userVo) {
 		System.out.println(userVo);
-		return "loginFail";
+		
+		boolean isRegister = loginService.registeUser(userVo);
+		if (isRegister) {
+			return "registerSuccess";
+		} else {
+			return "login";
+		}
 	}
 }
