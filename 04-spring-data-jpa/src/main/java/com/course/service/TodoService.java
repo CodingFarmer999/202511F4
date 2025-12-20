@@ -43,6 +43,13 @@ public class TodoService {
 	
 	public List<TodoEntity> getTodoByTitleLike(String title) {
 		String keyword = "%" + title + "%";
-		return todoRepository.findByTitleLike(keyword);
+		//return todoRepository.findByTitleLike(keyword);
+		
+		return todoRepository.findByTitleContaining(title);
+	}
+	
+	
+	public List<TodoEntity> getTodoByIdPeriod(Integer id) {
+		return todoRepository.findByIdGreaterThan(id);
 	}
 }

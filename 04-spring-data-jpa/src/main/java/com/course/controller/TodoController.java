@@ -39,4 +39,10 @@ public class TodoController {
 		List<TodoEntity> todos = todoService.getTodoByTitleLike(title);
 		return todos;
 	}
+	
+	@GetMapping("/todo/period/{id}")
+	public List<TodoEntity> getByIdPeriod(@PathVariable Integer id) {
+		List<TodoEntity> todos = todoService.getTodoByIdPeriod(id);
+		return todos;
+	}
 }

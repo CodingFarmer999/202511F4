@@ -16,6 +16,22 @@ public interface TodoRepository extends JpaRepository<TodoEntity, Integer> {
 	
 	List<TodoEntity> findByTitleAndStatus(String title, Integer status);
 	
+	// SQL語句：select * from todo where title like '%關鍵字%'
 	List<TodoEntity> findByTitleLike(String title);
+	
+	// SQL語句：select * from todo where title like '%關鍵字%'
+	List<TodoEntity> findByTitleContaining(String title);
+
+	// SQL語句：select * from todo where title like '關鍵字%'
+	List<TodoEntity> findByTitleStartingWith(String title);
+
+	// SQL語句：select * from todo where title like '%關鍵字'
+	List<TodoEntity> findByTitleEndingWith(String title);
+	
+	// SQL語句：select * from todo where id > ?
+	List<TodoEntity> findByIdGreaterThan(Integer id);
+
+	// SQL語句：select * from todo where id <= ?
+	List<TodoEntity> findByIdLessThanEqual(Integer id);
 	
 }
