@@ -13,6 +13,7 @@ import com.course.service.TodoService;
 //@Controller
 @RestController
 public class TodoController {
+	
 	@Autowired
 	private TodoService todoService;
 
@@ -30,6 +31,12 @@ public class TodoController {
 	@GetMapping("/todo/status/{status}")
 	public List<TodoEntity> getByStatus(@PathVariable Integer status) {
 		List<TodoEntity> todos = todoService.getTodoByStatus(status);
+		return todos;
+	}
+	
+	@GetMapping("/todo/title/{title}")
+	public List<TodoEntity> getByTitleLike(@PathVariable String title) {
+		List<TodoEntity> todos = todoService.getTodoByTitleLike(title);
 		return todos;
 	}
 }

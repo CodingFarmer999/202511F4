@@ -40,4 +40,9 @@ public class TodoService {
 	public List<TodoEntity> getTodoByTitleAndStatus(String title, Integer status) {
 		return todoRepository.findByTitleAndStatus(title, status);
 	}
+	
+	public List<TodoEntity> getTodoByTitleLike(String title) {
+		String keyword = "%" + title + "%";
+		return todoRepository.findByTitleLike(keyword);
+	}
 }

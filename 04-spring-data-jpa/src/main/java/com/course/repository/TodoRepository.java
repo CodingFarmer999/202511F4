@@ -16,4 +16,6 @@ public interface TodoRepository extends JpaRepository<TodoEntity, Integer> {
 	
 	List<TodoEntity> findByTitleAndStatus(String title, Integer status);
 	
+	List<TodoEntity> findByTitleLike(String title);
+	
 }
