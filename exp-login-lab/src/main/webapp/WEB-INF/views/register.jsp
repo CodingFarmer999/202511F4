@@ -9,7 +9,7 @@
 <body>
 <h1>註冊頁</h1>
 
-<form action="" method="">
+<form action="register" method="POST" enctype="multipart/form-data">
 	帳號：<input type="text" name="username" /><br/>
 	密碼：<input type="text" name="password" /><br/>
 	E-Mail：<input type="text" name="email" /><br/>
