@@ -17,13 +17,21 @@ public class LoginService {
 	private UsersRepository usersRepository;
 
 	public boolean checkLogin(String username, String password) {
-		List<UsersEntity> users = usersRepository.findAll();
+		// List<UsersEntity> users = usersRepository.findAll();
+		UsersEntity user = usersRepository.findByUsername(username);
 		
-		if (username.equals("aaa") && password.equals("111")) {
-			return true;
-		} else {
-			return false;
+		if (user != null) {
+			if (password.equals(user.getPassword())) {
+				return true;
+			}
 		}
+		
+		return false;
+//		if (username.equals("aaa") && password.equals("111")) {
+//			return true;
+//		} else {
+//			return false;
+//		}
 	}
 	
 	public boolean registeUser(UserVo userVo) {
