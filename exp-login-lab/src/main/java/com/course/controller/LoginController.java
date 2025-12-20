@@ -29,4 +29,9 @@ public class LoginController {
 			return "loginFail";
 		}
 	}
+	
+	@GetMapping("/registerPage")
+	public String toRegisterPage() {
+		return "register";
+	}
 }
