@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.course.entity.TodoEntity;
+import com.course.model.TodoVo;
 import com.course.repository.TodoRepository;
 
 @Service
@@ -98,5 +99,16 @@ public class TodoService {
 	
 	public List<TodoEntity> findByNativeQuery(Integer status) {
 		return todoRepository.findByNativeQuery(status);
+	}
+	
+	public void insertTodo(TodoVo todoVo) {
+		
+		TodoEntity entity =  new TodoEntity();
+		entity.setTitle(todoVo.getTitle());
+		entity.setDuedate(genQueryDate(todoVo.getDuedate(),false));
+		entity.setStatus(todoVo.getStatus());
+
+		// TodoEntity
+		todoRepository.save(entity);
 	}
 }
