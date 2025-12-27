@@ -109,8 +109,11 @@ public class TodoService {
 		entity.setDuedate(genQueryDate(todoVo.getDuedate(),false));
 		entity.setStatus(todoVo.getStatus());
 
+		System.out.println("======  Before  ========" + entity.getId());
+		
 		// TodoEntity
-		todoRepository.save(entity);
+		entity = todoRepository.save(entity);
+		System.out.println(entity.getId());
 	}
 	
 	public void updateTodo(TodoVo todoVo) {
