@@ -52,4 +52,10 @@ public class TodoController {
 		List<TodoEntity> todos = todoService.findByDuedateBetween(startDate, endDate);
 		return todos;
 	}
+	
+	@GetMapping("/todo/title-order/{title}")
+	public List<TodoEntity> getByTitleOrderBy(@PathVariable String title) {
+		List<TodoEntity> todos = todoService.findByTitleStartingWithOrderByDuedateDesc(title);
+		return todos;
+	}
 }

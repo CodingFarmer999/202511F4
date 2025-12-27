@@ -36,4 +36,15 @@ public interface TodoRepository extends JpaRepository<TodoEntity, Integer> {
 	List<TodoEntity> findByIdLessThanEqual(Integer id);
 	
 	List<TodoEntity> findByDuedateBetween(Date startDate, Date endDate);
+	
+	List<TodoEntity> findByIdAndTitleOrDuedateAndStatus(Integer id, String title, Date duedate, Integer status);
+	
+	// SQL語句：select * from todo order by duedate;
+	List<TodoEntity> findAllByOrderByDuedate();
+	
+	// SQL語句：select * from todo where title like ? order by due_date desc;
+	List<TodoEntity> findByTitleStartingWithOrderByDuedate(String title);
+	
+	// SQL語句：select * from todo where title like ? order by due_date desc;
+	List<TodoEntity> findByTitleStartingWithOrderByDuedateDesc(String title);
 }

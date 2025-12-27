@@ -61,8 +61,13 @@ public class TodoService {
 		Date startDate = genQueryDate(startDateStr, false);
 		
 		Date endDate = genQueryDate(endDateStr, true);
-		
+
 		return todoRepository.findByDuedateBetween(startDate, endDate);
+	}
+	
+	public List<TodoEntity> findByTitleStartingWithOrderByDuedateDesc(String title) {
+		return todoRepository.findByTitleStartingWithOrderByDuedate(title);
+//		return todoRepository.findByTitleStartingWithOrderByDuedateDesc(title);
 	}
 	
 	private Date genQueryDate(String dateStr, boolean isEndDate) {
