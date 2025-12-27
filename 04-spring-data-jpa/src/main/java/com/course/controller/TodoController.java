@@ -58,4 +58,10 @@ public class TodoController {
 		List<TodoEntity> todos = todoService.findByTitleStartingWithOrderByDuedateDesc(title);
 		return todos;
 	}
+	
+	@GetMapping("/todo/query/status/{status}")
+	public List<TodoEntity> findByQuery(@PathVariable Integer status) {
+		List<TodoEntity> todos = todoService.findByQuery(status);
+		return todos;
+	}
 }

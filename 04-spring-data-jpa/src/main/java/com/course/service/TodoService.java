@@ -84,4 +84,13 @@ public class TodoService {
 	    }
 	    return date;
 	}
+	
+	/**
+	 * 依狀態查詢
+	 * @param status
+	 * @return
+	 */
+	public List<TodoEntity> findByQuery(Integer status) {
+		return todoRepository.findByQuery(status);
+	}
 }
