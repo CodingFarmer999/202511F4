@@ -13,6 +13,8 @@ import com.course.entity.TodoEntity;
 import com.course.model.TodoVo;
 import com.course.repository.TodoRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class TodoService {
 
@@ -141,5 +143,11 @@ public class TodoService {
 
 		// TodoEntity
 		todoRepository.insertByQuery(todoVo.getTitle(), genQueryDate(todoVo.getDuedate(),false), todoVo.getStatus());
+	}
+	
+	@Transactional
+	public void deleteByStatus(Integer id) {
+		// todoRepository.deleteAll();
+		todoRepository.deleteByStatus(id);
 	}
 }

@@ -99,4 +99,9 @@ public class TodoController {
 	public void insertTodoQuery(@RequestBody TodoVo todoVo) {
 		todoService.insertTodoQuery(todoVo);
 	}
+	
+	@DeleteMapping("/todo/status/{status}")
+	public void deleteByStatus(@PathVariable Integer status) {
+		todoService.deleteByStatus(status);
+	}
 }
