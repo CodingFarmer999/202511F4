@@ -18,5 +18,21 @@
 <h2 th:text="${param1} + ' ' + ${param2}">我是窮光蛋</h2>
 
 <h2 th:text="|${param1}    ${param2}|">我是窮光蛋</h2>
+
+<table border="1">
+	<tr>
+		<td>ID</td>
+		<td>使用者名稱</td>
+		<td>密碼</td>
+		<td>E-mail</td>
+	</tr>
+	<tr th:each="u1 : ${users}">
+		<td th:text="${u1.id}">XXXX</td>
+		<td th:text="${u1.username}">XXXX</td>
+		<td th:text="${u1.password}">XXXX</td>
+		<td th:text="${u1.email}">XXXX</td>
+	</tr>
+
+</table>
 </body>
 </html>
