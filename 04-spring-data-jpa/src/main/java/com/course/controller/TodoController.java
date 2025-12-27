@@ -94,4 +94,9 @@ public class TodoController {
 	public void updateQueryTodo(@PathVariable String title, @PathVariable Integer id) {
 		todoService.updateQuery(title, id);
 	}
+	
+	@PostMapping("/todo/insert-by-query")
+	public void insertTodoQuery(@RequestBody TodoVo todoVo) {
+		todoService.insertTodoQuery(todoVo);
+	}
 }

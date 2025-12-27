@@ -71,4 +71,10 @@ public interface TodoRepository extends JpaRepository<TodoEntity, Integer> {
 	@Query("UPDATE TodoEntity SET title = ?1 WHERE id = ?2")
 	void updateByQuery(String title, Integer id);
 	
+	@Transactional
+	@Modifying
+	// @Query("INSERT INTO TodoEntity (title, duedate, status) VALUES (?1,?2 ,?3)")
+	@Query(nativeQuery = true , value = "INSERT INTO Todo (title, duedate, status) VALUES (?1,?2 ,?3)")
+	void insertByQuery(String title, Date duedate, Integer status);
+	
 }

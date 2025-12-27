@@ -133,4 +133,10 @@ public class TodoService {
 	public void updateQuery(String title, Integer id) {
 		todoRepository.updateByQuery(title, id);
 	}
+	
+	public void insertTodoQuery(TodoVo todoVo) {
+
+		// TodoEntity
+		todoRepository.insertByQuery(todoVo.getTitle(), genQueryDate(todoVo.getDuedate(),false), todoVo.getStatus());
+	}
 }
