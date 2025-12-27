@@ -129,4 +129,8 @@ public class TodoService {
 	public void deleteTodo(Integer id) {
 		todoRepository.deleteById(id);
 	}
+	
+	public void updateQuery(String title, Integer id) {
+		todoRepository.updateByQuery(title, id);
+	}
 }

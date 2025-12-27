@@ -89,4 +89,9 @@ public class TodoController {
 	public void updateTodo(@PathVariable Integer id) {
 		todoService.deleteTodo(id);
 	}
+	
+	@PostMapping("/todo/title/{title}/id/{id}")
+	public void updateQueryTodo(@PathVariable String title, @PathVariable Integer id) {
+		todoService.updateQuery(title, id);
+	}
 }

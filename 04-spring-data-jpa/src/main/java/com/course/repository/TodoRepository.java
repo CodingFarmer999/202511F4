@@ -4,11 +4,14 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.course.entity.TodoEntity;
+
+import jakarta.transaction.Transactional;
 
 @Repository
 public interface TodoRepository extends JpaRepository<TodoEntity, Integer> {
@@ -62,5 +65,10 @@ public interface TodoRepository extends JpaRepository<TodoEntity, Integer> {
 	// @Query("SELECT T FROM TodoEntity T WHERE T.status = ?1")
 	@Query(nativeQuery = true, value = "SELECT * FROM TODO T WHERE T.STATUS = ?1")
 	List<TodoEntity> findByNativeQuery(Integer status);
+	
+	@Transactional
+	@Modifying
+	@Query("UPDATE TodoEntity SET title = ?1 WHERE id = ?2")
+	void updateByQuery(String title, Integer id);
 	
 }
