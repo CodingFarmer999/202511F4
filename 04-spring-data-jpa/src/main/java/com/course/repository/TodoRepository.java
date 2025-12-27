@@ -58,4 +58,8 @@ public interface TodoRepository extends JpaRepository<TodoEntity, Integer> {
 	// Named Param
 	@Query("SELECT T FROM TodoEntity T WHERE T.status = :s1 AND T.title = :t1")
 	List<TodoEntity> findByQuery2(@Param("t1") String title, @Param("s1") Integer status);
+	
+	// @Query("SELECT T FROM TodoEntity T WHERE T.status = ?1")
+	@Query(nativeQuery = true, value = "SELECT * FROM TODO T WHERE T.STATUS = ?1")
+	List<TodoEntity> findByNativeQuery(Integer status);
 }

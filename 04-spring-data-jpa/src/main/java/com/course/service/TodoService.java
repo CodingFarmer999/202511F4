@@ -95,4 +95,8 @@ public class TodoService {
 		// return todoRepository.findByQuery2(status);
 		return todoRepository.findByQuery2("買菜", status);
 	}
+	
+	public List<TodoEntity> findByNativeQuery(Integer status) {
+		return todoRepository.findByNativeQuery(status);
+	}
 }
