@@ -78,4 +78,9 @@ public class TodoController {
 	public void insertTodo(@RequestBody TodoVo todoVo) {
 		todoService.insertTodo(todoVo);
 	}
+	
+	@PostMapping("/todo/update")
+	public void updateTodo(@RequestBody TodoVo todoVo) {
+		todoService.updateTodo(todoVo);
+	}
 }
