@@ -91,6 +91,8 @@ public class TodoService {
 	 * @return
 	 */
 	public List<TodoEntity> findByQuery(Integer status) {
-		return todoRepository.findByQuery(status);
+		// return todoRepository.findByQuery(status);
+		// return todoRepository.findByQuery2(status);
+		return todoRepository.findByQuery2("買菜", status);
 	}
 }
