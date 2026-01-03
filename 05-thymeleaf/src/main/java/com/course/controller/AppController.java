@@ -32,7 +32,7 @@ public class AppController {
 		
 		model.addAttribute("users", userList);
 		
-		model.addAttribute("isLogin", false);
+		model.addAttribute("isLogin", true);
 		return "app";
 	}
 	
