@@ -15,6 +15,8 @@
     <div>
         <label for="author">作者:</label>
         <input type="text" th:field="*{author}"/>
+        <div th:if="${#fields.hasErrors('author')}" 
+         th:errors="*{author}"></div>
     </div>
     <div>
         <label for="imgName">圖檔名稱:</label>
