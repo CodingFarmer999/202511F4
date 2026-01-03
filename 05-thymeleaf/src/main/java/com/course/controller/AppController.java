@@ -65,6 +65,13 @@ public class AppController {
 		return "book";
 	}
 	
+	@GetMapping("/books")
+	public String toBookRequestParam(Integer page, String keyword) {
+		System.out.println("page:" + page);
+		System.out.println("keyword:" + keyword);
+		return "book";
+	}
+	
 	public String test() {
 		String t = """
 				
