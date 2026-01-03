@@ -1,9 +1,14 @@
 package com.course.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.course.entity.BookEntity;
 import com.course.service.BookService;
 
 @Controller
@@ -16,5 +21,13 @@ public class BookController {
 	public String login(String username, String password) {
 		// TODO: 檢查是否登入成功
 		return "loginSuccess";
+	}
+	
+	@GetMapping("/toBookcase")
+	public String toBookcase(Model model) {
+		// 查詢 書籍列表
+		List<BookEntity> books = bookService.getAllBook();
+		model.addAttribute("books", books);
+		return "bookcase";
 	}
 }
