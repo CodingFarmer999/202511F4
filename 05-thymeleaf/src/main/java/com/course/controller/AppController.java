@@ -51,6 +51,8 @@ public class AppController {
 		}
 		
 		model.addAttribute("usernameDisp", usernameDisp);
+		
+		model.addAttribute("imageName", "iPhone17_w.jpg");
 		return "app";
 	}
 	
