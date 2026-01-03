@@ -63,6 +63,29 @@
 <a th:href="@{/books(page=0, keyword='關鍵字')}">上一頁</a>
 
 <hr>
+<h2>表單</h2>
+<form th:action="@{/addBook}" method="POST">
+    <div>
+        <label for="name">書籍名稱:</label>
+        <input type="text" />
+    </div>
+    <div>
+        <label for="author">作者:</label>
+        <input type="text" />
+    </div>
+    <div>
+        <label for="imgName">圖檔名稱:</label>
+        <input type="text" />
+    </div>
+    <div>
+        <button type="submit">新增書籍</button>
+    </div>
+</form>
+
+
+
+<hr>
+
 
 <div th:replace="~{layout/common :: footer}"></div>
 <div th:include="~{layout/common :: footer}"></div>

@@ -6,8 +6,11 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import com.course.model.BookVo;
 import com.course.model.UserVo;
 
 @Controller
@@ -71,6 +74,12 @@ public class AppController {
 	public String toBookRequestParam(Integer page, String keyword) {
 		System.out.println("page:" + page);
 		System.out.println("keyword:" + keyword);
+		return "book";
+	}
+	
+	@PostMapping("/addBook")
+	public String addBook(@ModelAttribute BookVo bookVo) {
+		System.out.println(bookVo);
 		return "book";
 	}
 	
