@@ -60,7 +60,8 @@ public class AppController {
 	}
 	
 	@GetMapping("/book")
-	public String toBook() {
+	public String toBook(Model model) {
+		model.addAttribute("book", new BookVo());
 		return "book";
 	}
 	
@@ -78,8 +79,10 @@ public class AppController {
 	}
 	
 	@PostMapping("/addBook")
-	public String addBook(@ModelAttribute BookVo bookVo) {
+	public String addBook(@ModelAttribute BookVo bookVo, Model model) {
 		System.out.println(bookVo);
+		bookVo.setAuthor(bookVo.getAuthor() + "!!!!!!");
+		model.addAttribute("book", bookVo);
 		return "book";
 	}
 	
