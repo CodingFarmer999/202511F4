@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.course.entity.BookEntity;
+import com.course.model.BookVo;
 import com.course.service.BookService;
 
 @Controller
@@ -26,7 +26,7 @@ public class BookController {
 	@GetMapping("/toBookcase")
 	public String toBookcase(Model model) {
 		// 查詢 書籍列表
-		List<BookEntity> books = bookService.getAllBook();
+		List<BookVo> books = bookService.getAllBook();
 		model.addAttribute("books", books);
 		return "bookcase";
 	}
