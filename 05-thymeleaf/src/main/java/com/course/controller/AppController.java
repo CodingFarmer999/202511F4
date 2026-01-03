@@ -82,7 +82,7 @@ public class AppController {
 	}
 	
 	@PostMapping("/addBook")
-	public String addBook(@Valid @ModelAttribute BookVo bookVo, BindingResult bindingResult, Model model) {
+	public String addBook(@Valid @ModelAttribute("book") BookVo bookVo, BindingResult bindingResult, Model model) {
 		System.out.println(bookVo);
 		model.addAttribute("book", bookVo);
 		if (bindingResult.hasErrors()) {
