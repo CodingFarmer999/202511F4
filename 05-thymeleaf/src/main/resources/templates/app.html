@@ -15,9 +15,15 @@
 <!-- <h2 th:utext="${title2}">我是窮光蛋</h2> -->
 <!-- <th:text></th:text> -->
 
+<h2 th:if="${isLogin}">親愛的用戶您好：</h2>
+
+<h2 th:unless="${isLogin}">親愛的用戶您好2：</h2>
+
 <h2 th:text="${param1} + ' ' + ${param2}">我是窮光蛋</h2>
 
 <h2 th:text="|${param1}    ${param2}|">我是窮光蛋</h2>
+
+
 
 <table border="1">
 	<tr>
