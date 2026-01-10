@@ -1,9 +1,9 @@
 package com.course.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.course.model.User;
@@ -40,9 +40,9 @@ public class RestfulController {
 		return null;
 	}
 	
-	@Operation(tags = "使用者", summary= "新增使用者@RequestParam", description="新增使用者")
+	@Operation(tags = "使用者", summary= "新增使用者@ModelAttribute", description="新增使用者")
 	@PostMapping("/user-RequestParam")
-	public String addUserRequestParam(@RequestParam User user) {
+	public String addUserModelAttribute(@ModelAttribute User user) {
 		return null;
 	}
 	
