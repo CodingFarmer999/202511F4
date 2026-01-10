@@ -74,6 +74,19 @@ public class BookService {
 			entity.setAuthor(book.getAuthor());
 		}
 		
+		if (!book.getBuyDate().isBlank()) {
+			entity.setBuyDate(helper.parseDate(book.getBuyDate()));
+		}
+		
+		if (book.getFile() != null && !book.getFile().getOriginalFilename().isBlank()) {
+			entity.setImgName(book.getFile().getOriginalFilename());
+			try {
+				helper.saveImage(book.getFile());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
 		bookRepo.save(entity);
 		
 		
