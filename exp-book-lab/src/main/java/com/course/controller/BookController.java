@@ -54,4 +54,12 @@ public class BookController {
 		bookService.insertBook(book);
 		return "redirect:/toBookcase";
 	}
+	
+	@GetMapping("/toEditPage/{id}")
+	public String toEditBook(@PathVariable("id") Long id, Model model) {
+		BookVo book = bookService.getBookById(id);
+		model.addAttribute("book", book);
+		// 查詢 書籍列表
+		return "editBook";
+	}
 }
