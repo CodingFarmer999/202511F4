@@ -33,6 +33,11 @@ public class BookController {
 		return "loginSuccess";
 	}
 	
+	@ModelAttribute("username")
+	public String getUsername() {
+		return userService.getUsernameFromSession();
+	}
+	
 	@GetMapping("/toBookcase")
 	public String toBookcase(Model model) {
 		// 查詢 書籍列表
@@ -42,7 +47,7 @@ public class BookController {
 		
 		String username = userService.getUsernameFromSession();
 		model.addAttribute("books", books);
-		model.addAttribute("username", username);
+		// model.addAttribute("username", username);
 		return "bookcase";
 	}
 	
