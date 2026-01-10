@@ -41,4 +41,10 @@ public class BookController {
 //		return "bookcase";
 		return "redirect:/toBookcase";
 	}
+	
+	@GetMapping("toAddBookPage")
+	public String toAddBook(Model model) {
+		model.addAttribute("book", new BookVo());
+		return "addBook";
+	}
 }
