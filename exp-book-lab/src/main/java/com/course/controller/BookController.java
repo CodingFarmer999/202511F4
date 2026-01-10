@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.course.entity.BookEntity;
 import com.course.model.BookVo;
 import com.course.service.BookService;
+import com.course.service.UserService;
 
 @Controller
 public class BookController {
@@ -22,9 +23,13 @@ public class BookController {
 	@Autowired
 	private BookService bookService;
 	
+	@Autowired
+	private UserService userService;
+	
 	@PostMapping("/login")
 	public String login(String username, String password) {
 		// TODO: 檢查是否登入成功
+		boolean isLoginSuccess = userService.login(username, password);
 		return "loginSuccess";
 	}
 	
@@ -33,9 +38,11 @@ public class BookController {
 		// 查詢 書籍列表
 		List<BookVo> books = bookService.getAllBook();
 		
-		Page<BookEntity> page = bookService.getAllBookPage(1, 3);
+		// Page<BookEntity> page = bookService.getAllBookPage(1, 3);
 		
+		String username = userService.getUsernameFromSession();
 		model.addAttribute("books", books);
+		model.addAttribute("username", username);
 		return "bookcase";
 	}
 	
