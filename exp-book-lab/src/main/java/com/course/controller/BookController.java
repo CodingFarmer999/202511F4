@@ -59,7 +59,6 @@ public class BookController {
 	public String toEditBook(@PathVariable("id") Long id, Model model) {
 		BookVo book = bookService.getBookById(id);
 		model.addAttribute("book", book);
-		// 查詢 書籍列表
 		return "editBook";
 	}
 }
