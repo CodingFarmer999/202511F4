@@ -1,7 +1,7 @@
 package com.course.service;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -38,7 +38,18 @@ public class BookService {
 		bookRepo.deleteById(id);
 	}
 	
-	
+	public void insertBook(BookVo book) {
+		// 轉成 Entity
+		BookEntity entity = new BookEntity();
+		// 存進 DB
+		entity.setName(book.getName());
+		entity.setAuthor(book.getAuthor());
+		entity.setBuyDate(parseDate(book.getBuyDate()));
+		entity.setImgName("XXXX");
+		bookRepo.save(entity);
+		
+		
+	}
 	
 	public BookVo convertToVo(BookEntity entity) {
 		BookVo vo = new BookVo();
@@ -55,5 +66,20 @@ public class BookService {
 	   SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 	   // 將 Date 物件轉換為 String
 	   return formatter.format(date);
+	}
+	
+	/**
+	 * 轉換日期
+	 * @param dueDateStr
+	 * @return
+	 */
+	public Date parseDate(String dueDateStr) {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            return formatter.parse(dueDateStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
 	}
 }
