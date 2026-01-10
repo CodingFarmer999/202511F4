@@ -3,6 +3,7 @@ package com.course.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.course.entity.BookEntity;
 import com.course.model.BookVo;
 import com.course.service.BookService;
 
@@ -30,6 +32,9 @@ public class BookController {
 	public String toBookcase(Model model) {
 		// 查詢 書籍列表
 		List<BookVo> books = bookService.getAllBook();
+		
+		Page<BookEntity> page = bookService.getAllBookPage(1, 3);
+		
 		model.addAttribute("books", books);
 		return "bookcase";
 	}
