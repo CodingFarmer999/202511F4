@@ -64,4 +64,18 @@ public class BookService {
 		return helper.convertToVo(entity);
 	}
 	
+	public void updateBook(BookVo book) {
+		BookEntity entity = bookRepo.findById(book.getId()).orElse(null);
+		if (!book.getName().isBlank()) {
+			entity.setName(book.getName());
+		}
+		
+		if (!book.getAuthor().isBlank()) {
+			entity.setAuthor(book.getAuthor());
+		}
+		
+		bookRepo.save(entity);
+		
+		
+	}
 }
