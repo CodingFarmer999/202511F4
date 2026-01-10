@@ -83,4 +83,20 @@ public class BookController {
 		
 	}
 	
+	@GetMapping("/books")
+	public String listBooks(
+	        @RequestParam(defaultValue = "0") Integer page,
+	        @RequestParam(defaultValue = "4") Integer size,
+	        @RequestParam(defaultValue = "") String keyword,
+	        Model model) {
+
+		Page<BookVo> bookPage = bookService.findBookListPaging(page, size, keyword);
+
+	    model.addAttribute("bookPage", bookPage);
+	    model.addAttribute("currentPage", page);
+	    model.addAttribute("keyword", keyword);
+
+	    return "bookcase2";
+	}
+	
 }

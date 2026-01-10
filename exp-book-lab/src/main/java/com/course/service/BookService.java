@@ -110,4 +110,14 @@ public class BookService {
 		
 		//return books.stream().map(entity -> helper.convertToVo(entity)).collect(Collectors.toList());
 	}
+	
+	public Page<BookVo> findBookListPaging(Integer page, Integer size, String keyword) {
+	    Pageable pageable = PageRequest.of(page, size);
+	    Page<BookEntity> bookPage = bookRepo.findByNameContaining(keyword, pageable);
+	    
+	    // Page.map() 用來轉換每一筆資料的型態，分頁資訊會自動保留，不需要自己重建 Page。
+	    // bookPage.map(entity -> helper.convertToVo(entity));
+	    return bookPage.map(helper::convertToVo);
+	}
+	
 }
