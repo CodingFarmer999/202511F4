@@ -40,7 +40,7 @@
 	                <td th:text="${book.author}">布蘭登山德森</td>
 	                <td th:text="${book.buyDate}">2025-01-01</td>
 	                <td>
-	                    <a th:href="@{/edit/{id}(id=${book.id})}" class="btn btn-primary btn-sm">編輯</a>
+	                    <a th:href="@{/toEditPage/{id}(id=${book.id})}" class="btn btn-primary btn-sm">編輯</a>
 	                    <a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger btn-sm">刪除</a>
 	                </td>
 	            </tr>
