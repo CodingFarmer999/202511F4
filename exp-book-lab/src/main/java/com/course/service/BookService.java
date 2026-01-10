@@ -88,7 +88,14 @@ public class BookService {
 			
 		}
 		bookRepo.save(entity);
+	}
+	
+	public List<BookVo> getSearchBook(String keyword) {
+		// LIKE %keyword%
+		List<BookEntity> books = bookRepo.findByNameContaining(keyword);
+		// Entity -> Vo
 		
-		
+		return books.stream().map(entity -> helper.convertToVo(entity)).collect(Collectors.toList());
+
 	}
 }
