@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <h1>我的書櫃</h1>
+
+<table border="1">
+	<thead>
+		<tr>
+			<td>書名</td>
+			<td>作者</td>
+			<td>XXXX</td>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<tr th:each=" book : ${books}">
+			<td th:text="${book.name}">書名</td>
+			<td th:text="${book.author}">作者</td>
+			<td>XXXX</td>
+		</tr>
+	</tbody>
+
+</table>
+
+
+
 </body>
 </html>
