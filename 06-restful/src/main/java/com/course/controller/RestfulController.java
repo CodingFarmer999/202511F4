@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.course.model.User;
@@ -71,7 +72,7 @@ public class RestfulController {
 	
 	@Operation(tags = "使用者", summary= "更新使用者部分資料", description="更新使用者部分資料")
 	@PatchMapping("/user")
-	public String updateUserSomeeData(@RequestBody User user) {
+	public String updateUserSomeData(@RequestBody User user) {
 		return null;
 	}
 	
@@ -80,4 +81,9 @@ public class RestfulController {
 		return null;
 	}
 	
+	@Operation(tags = "使用者", summary= "依照名稱查詢使用者", description="依照名稱查詢使用者")
+	@GetMapping("/user/name")
+	public String getUserByName(@RequestParam String name) {
+		return null;
+	}
 }
