@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.course.model.BookVo;
@@ -25,6 +26,15 @@ public class BookController {
 	
 	@GetMapping("/toBookcase")
 	public String toBookcase(Model model) {
+		// 查詢 書籍列表
+		List<BookVo> books = bookService.getAllBook();
+		model.addAttribute("books", books);
+		return "bookcase";
+	}
+	
+	@GetMapping("/delete/{id}")
+	public String deleteBook(@PathVariable("id") Long id, Model model) {
+		bookService.deleteBookById(id);
 		// 查詢 書籍列表
 		List<BookVo> books = bookService.getAllBook();
 		model.addAttribute("books", books);

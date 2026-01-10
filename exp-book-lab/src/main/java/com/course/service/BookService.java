@@ -34,6 +34,12 @@ public class BookService {
 //		return voList;
 	}
 	
+	public void deleteBookById(Long id) {
+		bookRepo.deleteById(id);
+	}
+	
+	
+	
 	public BookVo convertToVo(BookEntity entity) {
 		BookVo vo = new BookVo();
 		vo.setId(entity.getId());

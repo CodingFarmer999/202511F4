@@ -12,7 +12,7 @@
 		<tr>
 			<td>書名</td>
 			<td>作者</td>
-			<td>XXXX</td>
+			<td>功能</td>
 		</tr>
 	</thead>
 	
@@ -20,7 +20,10 @@
 		<tr th:each=" book : ${books}">
 			<td th:text="${book.name}">書名</td>
 			<td th:text="${book.author}">作者</td>
-			<td>XXXX</td>
+			<td>
+				<a href="">編輯</a>
+				<a th:href="@{/delete/{id} (id=${book.id})}">刪除</a>
+			</td>
 		</tr>
 	</tbody>
 
