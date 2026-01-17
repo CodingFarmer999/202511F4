@@ -22,21 +22,21 @@ public class BookJdbcDaoImpl implements BookDao {
 	}
 
 	@Override
-	public List<BookDto> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public void updateBook(BookDto dto) {
-		// TODO Auto-generated method stub
-		
+		String sql = "UPDATE BOOK SET NAME = ?, AUTHOR = ? , BUY_DATE = ? , IMG_NAME= ? WHERE ID = ?";
+		jdbcTemplate.update(sql, dto.getName(), dto.getAuthor(), dto.getBuyDate(), dto.getImgName(), dto.getId());
 	}
 
 	@Override
 	public void deleteBookById(Long id) {
+		String sql = "DELETE FROM BOOK WHERE ID = ?";
+		jdbcTemplate.update(sql, id);
+	}
+	
+	@Override
+	public List<BookDto> findAll() {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
 }
