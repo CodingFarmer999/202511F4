@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import com.course.dao.BookDao;
 import com.course.dto.BookDto;
+import com.course.dto.StoreDto;
+import com.course.model.BookRowMapper;
 
 @Repository
 public class BookJdbcDaoImpl implements BookDao {
@@ -37,6 +39,14 @@ public class BookJdbcDaoImpl implements BookDao {
 	public List<BookDto> findAll() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<StoreDto> findAllStore() {
+		String sql = "SELECT * FROM STORE";
+		// Interface RowMapper
+		// new RowMapper() (X) -> new BookRowMapper()
+		return jdbcTemplate.query(sql, new BookRowMapper());
 	}
 
 }
