@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.course.dao.BookDao;
+import com.course.dto.BookDto;
 
 @Service
 public class BookService {
@@ -13,7 +14,7 @@ public class BookService {
 	@Qualifier("bookJdbcDaoImpl")
 	private BookDao bookDao;
 	
-	public void addBook() {
-		bookDao.insertBook(null);
+	public void addBook(BookDto dto) {
+		bookDao.insertBook(dto);
 	}
 }
