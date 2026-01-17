@@ -1,5 +1,7 @@
 package com.course.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,6 +30,18 @@ public class RestfulController {
 		return "hello";
 	}
 	
+	@Operation(tags = {"測試TAG"}, summary= "ResponseEntity", description="我是描述")
+	@GetMapping("/hello-ResponseEntity")
+	public ResponseEntity<String> helloEntity() {
+		return ResponseEntity.ok("hello");
+	}
+	
+	@Operation(tags = {"測試TAG"}, summary= "not-found")
+	@GetMapping("/not-found")
+	public ResponseEntity<String> notFound() {
+	    return new ResponseEntity<>("404找不到啦～", HttpStatus.REQUEST_TIMEOUT);
+	}
+	
 	@Operation(tags = "測試TAG2", summary= "HELLO 你好嗎?", description="我是描述")
 	@GetMapping("/hello2")
 	public String hello2() {
@@ -53,8 +67,8 @@ public class RestfulController {
 	}
 	
 	@Operation(tags = "使用者", summary= "新增使用者@RequestBody", description="新增使用者")
-	@PostMapping("/user-ReqestBody")
-	public String addUserReqestBody(@RequestBody User user) {
+	@PostMapping("/user-RequestBody")
+	public String addUserRequestBody(@RequestBody User user) {
 		return null;
 	}
 	
