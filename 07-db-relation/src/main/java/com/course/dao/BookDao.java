@@ -20,4 +20,6 @@ public interface BookDao {
 	void deleteBookById(Long id);
 	
 	List<StoreDto> findAllStore();
+
+	List<StoreDto> findAllStoreWithData();
 }

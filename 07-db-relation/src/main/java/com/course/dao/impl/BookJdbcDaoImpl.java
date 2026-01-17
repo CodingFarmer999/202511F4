@@ -1,9 +1,12 @@
 package com.course.dao.impl;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.course.dao.BookDao;
@@ -47,6 +50,34 @@ public class BookJdbcDaoImpl implements BookDao {
 		// Interface RowMapper
 		// new RowMapper() (X) -> new StoreRowMapper()
 		return jdbcTemplate.query(sql, new StoreRowMapper());
+	}
+	
+	@Override
+	public List<StoreDto> findAllStoreWithData() {
+		// String sql = "SELECT * FROM STORE JOIN STORE_PROFILE F ON F.STORE_ID = S.ID";
+		// StringBuffer
+		StringBuilder sb = new StringBuilder();
+		sb.append(" SELECT ");
+		sb.append(" S.ID S_ID, ");
+		sb.append(" S.CODE, ");
+		sb.append(" S.NAME, ");
+		sb.append(" F.ADDRESS ");
+		sb.append(" FROM STORE S ");
+		sb.append(" JOIN STORE_PROFILE F ON F.STORE_ID = S.ID ");
+
+		RowMapper<StoreDto> storeRowMapper = new RowMapper<>() {
+			// 匿名類別
+			@Override
+			public StoreDto mapRow(ResultSet rs, int rowNum) throws SQLException {
+				StoreDto dto = new StoreDto();
+				dto.setId(rs.getLong("S_ID"));
+				dto.setCode(rs.getString("CODE"));
+				dto.setName(rs.getString("NAME"));
+				dto.setAddress(rs.getString("ADDRESS"));
+				return dto;
+			}
+		};
+		return jdbcTemplate.query(sb.toString(), storeRowMapper);
 	}
 
 }

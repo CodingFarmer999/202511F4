@@ -22,6 +22,7 @@ public class BookService {
 	}
 	
 	public List<StoreDto> getStores() {
-		return bookDao.findAllStore();
+		// return bookDao.findAllStore();
+		return bookDao.findAllStoreWithData();
 	}
 }
