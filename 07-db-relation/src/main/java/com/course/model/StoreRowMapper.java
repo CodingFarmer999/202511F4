@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.course.dto.StoreDto;
 
-public class BookRowMapper implements RowMapper<StoreDto> {
+public class StoreRowMapper implements RowMapper<StoreDto> {
 
 	@Override
 	public StoreDto mapRow(ResultSet rs, int rowNum) throws SQLException {

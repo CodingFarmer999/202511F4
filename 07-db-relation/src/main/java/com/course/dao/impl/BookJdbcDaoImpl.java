@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.course.dao.BookDao;
 import com.course.dto.BookDto;
 import com.course.dto.StoreDto;
-import com.course.model.BookRowMapper;
+import com.course.model.StoreRowMapper;
 
 @Repository
 public class BookJdbcDaoImpl implements BookDao {
@@ -45,8 +45,8 @@ public class BookJdbcDaoImpl implements BookDao {
 	public List<StoreDto> findAllStore() {
 		String sql = "SELECT * FROM STORE";
 		// Interface RowMapper
-		// new RowMapper() (X) -> new BookRowMapper()
-		return jdbcTemplate.query(sql, new BookRowMapper());
+		// new RowMapper() (X) -> new StoreRowMapper()
+		return jdbcTemplate.query(sql, new StoreRowMapper());
 	}
 
 }
