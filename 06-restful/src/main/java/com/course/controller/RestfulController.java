@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,6 +25,7 @@ import io.swagger.v3.oas.annotations.Operation;
 //@Controller
 //@ResponseBody
 @RestController
+@CrossOrigin("http://127.0.0.1:5500")
 public class RestfulController {
 
 	@Operation(tags = {"測試TAG", "測試TAG2"}, summary= "你好", description="我是描述")
