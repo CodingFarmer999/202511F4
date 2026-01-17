@@ -1,5 +1,7 @@
 package com.course.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.course.model.ApiResponse;
 import com.course.model.User;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -40,6 +43,13 @@ public class RestfulController {
 	@GetMapping("/not-found")
 	public ResponseEntity<String> notFound() {
 	    return new ResponseEntity<>("404找不到啦～", HttpStatus.REQUEST_TIMEOUT);
+	}
+	
+	@Operation(summary = "取得使用者-自定義 ApiResponse", description = "取得使用者詳細資料", tags = "使用者")
+	@GetMapping("/user/wrap")
+	public ApiResponse<List<User>> getUsersWrapWithApiResponse() {
+		List<User> users = null;
+		return ApiResponse.error("401", "我也不知道發生什麼錯", users);
 	}
 	
 	@Operation(tags = "測試TAG2", summary= "HELLO 你好嗎?", description="我是描述")
