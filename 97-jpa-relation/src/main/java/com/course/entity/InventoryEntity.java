@@ -18,6 +18,9 @@ public class InventoryEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+//    @Column("store_id")
+//    private Long storeId;
+    
     @ManyToOne
     @JoinColumn(name = "store_id")
     private StoreEntity store;
