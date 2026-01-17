@@ -16,4 +16,6 @@ public class BookDto {
 	private Date buyDate;
 	
 	private String imgName;
+	
+	private String storeName;
 }
