@@ -18,4 +18,9 @@ public class BookDto {
 	private String imgName;
 	
 	private String storeName;
+	
+	private Integer quantity;
+	
+	private String address;
+	
 }

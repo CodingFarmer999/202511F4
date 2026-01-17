@@ -80,6 +80,7 @@ public class BookJdbcDaoImpl implements BookDao {
 		return jdbcTemplate.query(sb.toString(), storeRowMapper);
 	}
 	
+	@Override
 	public List<BookDto> findInventoryByCode(String code) {
 		StringBuilder sb = new StringBuilder();
 	
@@ -96,8 +97,10 @@ public class BookJdbcDaoImpl implements BookDao {
 
 		RowMapper<BookDto> bookRowMapper = (rs, rowNum) -> {
 			BookDto dto = new BookDto();
-			dto.setName(rs.getString("CODE"));
-			
+			dto.setName(rs.getString("B_NAME"));
+			dto.setQuantity(rs.getInt("QUANTITY"));
+			dto.setStoreName(rs.getString("S_NAME"));
+			dto.setAddress(rs.getString("ADDRESS"));
 			return dto;
 		};
 

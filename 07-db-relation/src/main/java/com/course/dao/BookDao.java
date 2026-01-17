@@ -22,4 +22,6 @@ public interface BookDao {
 	List<StoreDto> findAllStore();
 
 	List<StoreDto> findAllStoreWithData();
+
+	List<BookDto> findInventoryByCode(String code);
 }
