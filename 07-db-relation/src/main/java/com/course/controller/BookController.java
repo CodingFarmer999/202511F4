@@ -66,4 +66,10 @@ public class BookController {
 	public List<StoreDto> findStoreByCondition(@RequestBody StoreDto dto) {
 		return bookService.findStoreByCondition(dto);
 	}
+	
+	@Operation(summary = "查詢所有書籍(含分類)", description = "查詢所有書籍")
+	@GetMapping("/book-category")
+	public List<BookDto> findBookWithCategory() {
+		return bookService.findBookWithCategory();
+	}
 }

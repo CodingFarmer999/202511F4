@@ -41,4 +41,26 @@
 
 	</select>
 	
+	
+	<resultMap type="bookDto" id="bookMap">
+	    <id property="id" column="ID"/>
+	    <result property="name" column="NAME"/>
+	    <result property="author" column="AUTHOR"/>
+	    <result property="buyDate" column="BUY_DATE"/>
+	    <collection property="categories" ofType="string">
+	        <result column="CATEGORY"/>
+	    </collection>
+	</resultMap>
+
+	<select id="findBookWithCategory" resultMap="bookMap">
+		SELECT
+	    B.ID,
+	    B.NAME,
+	    B.AUTHOR,
+	    B.BUY_DATE,
+	    C.CATEGORY
+		FROM BOOK B 
+		LEFT JOIN BOOK_CATEGORY C ON C.BOOK_ID = B.ID
+	</select>
+	
 </mapper>

@@ -119,4 +119,10 @@ public class BookJdbcDaoImpl implements BookDao {
 		return null;
 	}
 
+	@Override
+	public List<BookDto> findBookWithCategory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -79,6 +79,11 @@ public class BookMyBatisDaoImpl implements BookDao {
 	public List<StoreDto> findStoreByCondition(StoreDto dto) {
 		return bookMapper.findStoreByXml(dto);
 	}
+
+	@Override
+	public List<BookDto> findBookWithCategory() {
+		return bookMapper.findBookWithCategory();
+	}
 	
 	
 
