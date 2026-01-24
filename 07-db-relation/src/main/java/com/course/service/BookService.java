@@ -74,7 +74,8 @@ public class BookService {
 		List<BookDto> result = new ArrayList<>();
 		List<BookDto> books = bookDao.findAll();
 		for (BookDto book : books) {
-			List<String> categories = bookDao.findCategoryByBookId(book.getId());
+			// 取得書籍分類
+			List<String> categories = null; // = bookDao.findCategoryByBookId(book.getId());
 			book.setCategories(categories);
 			result.add(book);
 		}

@@ -28,4 +28,6 @@ public class BookDto {
 	
 	private List<String> categories;
 	
+	private List<StoreDto> stores;
+	
 }

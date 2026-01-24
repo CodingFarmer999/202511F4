@@ -46,4 +46,6 @@ public interface BookMapper {
 	List<StoreDto> findStoreByXml(StoreDto dto);
 	
 	List<BookDto> findBookWithCategory();
+	
+	List<BookDto> findAllInvetory();
 }
