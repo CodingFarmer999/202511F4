@@ -36,7 +36,7 @@
 		LEFT JOIN STORE_PROFILE P ON P.STORE_ID = S.ID
 		<where>
 			<if test="code != null and code != '' ">AND S.CODE = #{code}</if>
-			<if test="name != null and name != '' ">OR S.NAME LIKE #{name}</if>
+			<if test="name != null and name != '' ">OR S.NAME LIKE CONCAT('%', #{name}, '%')</if>
 		</where>
 
 	</select>
