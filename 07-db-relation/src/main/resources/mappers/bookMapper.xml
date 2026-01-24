@@ -32,8 +32,8 @@
 		S.CODE,
 		S.NAME,
 		P.ADDRESS
-		FROM store s 
-		left join store_profile p on p.store_id = s.id
+		FROM STORE S 
+		LEFT JOIN STORE_PROFILE P ON P.STORE_ID = S.ID
 	</select>
 	
 </mapper>
