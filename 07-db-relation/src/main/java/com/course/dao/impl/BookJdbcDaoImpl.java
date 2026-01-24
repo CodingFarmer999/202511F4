@@ -113,4 +113,10 @@ public class BookJdbcDaoImpl implements BookDao {
 		
 	}
 
+	@Override
+	public List<StoreDto> findStoreByCondition(StoreDto dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

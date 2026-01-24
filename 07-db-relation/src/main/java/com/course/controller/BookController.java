@@ -61,4 +61,9 @@ public class BookController {
 	public List<BookDto> getAllBook() {
 		return bookService.findAllBook();
 	}
+	
+	@PostMapping("/book-condition")
+	public List<StoreDto> findStoreByCondition(@RequestBody StoreDto dto) {
+		return bookService.findStoreByCondition(dto);
+	}
 }

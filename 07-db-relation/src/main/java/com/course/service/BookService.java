@@ -59,4 +59,8 @@ public class BookService {
 	public List<BookDto> findAllBook() {
 		return bookDao.findAll();
 	}
+	
+	public List<StoreDto> findStoreByCondition(StoreDto dto) {
+		return bookDao.findStoreByCondition(dto);
+	}
 }
