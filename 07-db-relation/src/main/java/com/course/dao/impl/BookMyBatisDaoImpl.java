@@ -28,7 +28,7 @@ public class BookMyBatisDaoImpl implements BookDao {
 	@Override
 	public List<BookDto> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return bookMapper.findAllBook();
 	}
 
 	@Override

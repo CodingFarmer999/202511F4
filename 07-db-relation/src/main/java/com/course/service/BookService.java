@@ -55,4 +55,8 @@ public class BookService {
 			e.printStackTrace();
 		}
 	}
+	
+	public List<BookDto> findAllBook() {
+		return bookDao.findAll();
+	}
 }

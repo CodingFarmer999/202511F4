@@ -55,4 +55,10 @@ public class BookController {
 	public void insertStore(@RequestBody StoreDto dto) {
 		bookService.insertStore(dto);
 	}
+	
+	@Operation(summary = "查詢所有書籍", description = "查詢所有書籍")
+	@GetMapping("/books")
+	public List<BookDto> getAllBook() {
+		return bookService.findAllBook();
+	}
 }
