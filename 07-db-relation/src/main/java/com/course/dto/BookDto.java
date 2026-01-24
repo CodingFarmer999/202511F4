@@ -24,6 +24,8 @@ public class BookDto {
 	
 	private String address;
 	
+	private String category;
+	
 	private List<String> categories;
 	
 }
