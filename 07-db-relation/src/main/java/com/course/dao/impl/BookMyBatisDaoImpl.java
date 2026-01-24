@@ -21,8 +21,8 @@ public class BookMyBatisDaoImpl implements BookDao {
 	
 	@Override
 	public void insertBook(BookDto dto) {
-		bookMapper.insertBook(dto);
-		
+		// bookMapper.insertBook(dto);
+		bookMapper.insertBookByXml(dto);
 	}
 
 	@Override
@@ -39,7 +39,8 @@ public class BookMyBatisDaoImpl implements BookDao {
 
 	@Override
 	public void deleteBookById(Long id) {
-		bookMapper.deleteById(id);
+		// bookMapper.deleteById(id);
+		bookMapper.deleteByIdByXml(id);
 	}
 
 	@Override

@@ -36,4 +36,10 @@ public interface BookMapper {
 	List<BookDto> findAllBook();
 	
 	List<BookDto> findAllBook2();
+	
+	Integer insertBookByXml(BookDto dto);
+	
+	Integer updateBookByXml(BookDto dto);
+	
+	Integer deleteByIdByXml(Long id);
 }
