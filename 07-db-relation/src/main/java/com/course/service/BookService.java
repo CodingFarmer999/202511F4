@@ -1,5 +1,6 @@
 package com.course.service;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,10 @@ public class BookService {
 	}
 	
 	public void insertStore(StoreDto dto) {
-		bookDao.insertStore(dto);
+		try {
+			bookDao.insertStore(dto);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 }
