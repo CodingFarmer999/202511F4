@@ -49,4 +49,10 @@ public class BookController {
 	public void deleteBookById(@PathVariable Long id) {
 		bookService.deleteBookById(id);
 	}
+	
+	@Operation(summary = "新增門市", description = "新增門市")
+	@PostMapping("/store")
+	public void insertStore(@RequestBody StoreDto dto) {
+		bookService.insertStore(dto);
+	}
 }

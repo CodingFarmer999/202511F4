@@ -46,4 +46,8 @@ public class BookService {
 	public void deleteBookById(Long id) {
 		bookDao.deleteBookById(id);
 	}
+	
+	public void insertStore(StoreDto dto) {
+		bookDao.insertStore(dto);
+	}
 }

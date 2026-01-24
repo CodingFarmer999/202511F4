@@ -57,4 +57,11 @@ public class BookMyBatisDaoImpl implements BookDao {
 		return null;
 	}
 
+	@Override
+	public void insertStore(StoreDto dto) {
+		bookMapper.insertStore(dto);
+		bookMapper.insertStoreProfile(dto);
+		
+	}
+
 }
