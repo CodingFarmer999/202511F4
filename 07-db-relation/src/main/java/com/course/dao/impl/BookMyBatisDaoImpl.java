@@ -33,8 +33,8 @@ public class BookMyBatisDaoImpl implements BookDao {
 
 	@Override
 	public void updateBook(BookDto dto) {
-		bookMapper.updateBook(dto);
-		
+		// bookMapper.updateBook(dto);
+		bookMapper.updateBookByXml(dto);
 	}
 
 	@Override
