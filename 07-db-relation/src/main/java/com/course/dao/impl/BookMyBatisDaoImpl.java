@@ -30,14 +30,13 @@ public class BookMyBatisDaoImpl implements BookDao {
 
 	@Override
 	public void updateBook(BookDto dto) {
-		// TODO Auto-generated method stub
+		bookMapper.updateBook(dto);
 		
 	}
 
 	@Override
 	public void deleteBookById(Long id) {
-		// TODO Auto-generated method stub
-		
+		bookMapper.deleteById(id);
 	}
 
 	@Override

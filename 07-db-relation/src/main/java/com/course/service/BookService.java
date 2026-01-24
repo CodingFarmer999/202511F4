@@ -37,4 +37,13 @@ public class BookService {
 	public List<BookDto> getInventoryByCode(String code) {
 		return bookDao.findInventoryByCode(code);
 	}
+	
+	public void updateBook(BookDto dto) {
+		bookDao.updateBook(dto);
+		
+	}
+
+	public void deleteBookById(Long id) {
+		bookDao.deleteBookById(id);
+	}
 }
