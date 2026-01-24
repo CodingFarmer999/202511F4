@@ -16,10 +16,10 @@
 	
 	<update id="updateBookByXml" parameterType="bookDto">
 		UPDATE BOOK
-		<set>
-			<if test="name != null and name= != ''">NAME = #{name},</if>
-			<if test="author != null and author != ''">AUTHOR = #{author},</if>
-		</set>
+	    <set>
+	        <if test="name != null and name !='' ">NAME = #{name},</if>
+	        <if test="author != null and author != '' ">AUTHOR = #{author},</if>
+	    </set>
 		WHERE ID = #{id}
 	</update>
 	
