@@ -34,4 +34,6 @@ public interface BookMapper {
 	
 	@Select("SELECT * FROM BOOK")
 	List<BookDto> findAllBook();
+	
+	List<BookDto> findAllBook2();
 }
