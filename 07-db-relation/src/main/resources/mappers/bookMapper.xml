@@ -17,7 +17,7 @@
 	<update id="updateBookByXml" parameterType="bookDto">
 		UPDATE BOOK
 	    <set>
-	        <if test="name != null and name !='' ">NAME = #{name},</if>
+	        <if test="name != null and name != '' ">NAME = #{name},</if>
 	        <if test="author != null and author != '' ">AUTHOR = #{author},</if>
 	    </set>
 		WHERE ID = #{id}
@@ -26,5 +26,14 @@
 	<delete id="deleteByIdByXml" parameterType="long">
 		DELETE FROM BOOK WHERE ID = #{id}
 	</delete>
+	
+	<select id="findStoreByXml" parameterType="StoreDto">
+		SELECT
+		S.CODE,
+		S.NAME,
+		P.ADDRESS
+		FROM store s 
+		left join store_profile p on p.store_id = s.id
+	</select>
 	
 </mapper>

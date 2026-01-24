@@ -45,13 +45,13 @@ public class BookMyBatisDaoImpl implements BookDao {
 
 	@Override
 	public List<StoreDto> findAllStore() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public List<StoreDto> findAllStoreWithData() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

@@ -42,4 +42,6 @@ public interface BookMapper {
 	Integer updateBookByXml(BookDto dto);
 	
 	Integer deleteByIdByXml(Long id);
+	
+	List<StoreDto> findStoreByXml(StoreDto dto);
 }
