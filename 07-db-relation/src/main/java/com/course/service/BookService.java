@@ -23,12 +23,16 @@ public class BookService {
 	
 	@Transactional
 	public void addBook(BookDto dto) {
+		// Syetem.getMillTime
 		
 		// 複雜邏輯
 		// ...
 		bookDao.insertBook(dto);
 		
 		// 複雜邏輯....
+		
+		// Syetem.getMillTime (end - start)ms
+		// logger
 	}
 	
 	public List<StoreDto> getStores() {
