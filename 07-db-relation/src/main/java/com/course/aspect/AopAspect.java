@@ -5,6 +5,8 @@ import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -55,5 +57,17 @@ public class AopAspect {
 		
 		logger.info("方法執行時間: {} ms", end - start);
 		return obj;
+	}
+	
+	@AfterReturning(value= "pointCutMethod()", returning = "result")
+	public void afterReturnAdvice(JoinPoint joinPoint, Object result) {
+	    logger.info("切面 AopAspect.afterReturnAdvice() -> @AfterReturning通知，在方法調用之後才調用，被切的方法名稱：" + joinPoint.getSignature().getName());
+	    logger.info("切面 AopAspect.afterReturnAdvice() -> @AfterReturning通知，在方法調用之後才調用，被切的方法的回傳值：" + result);
+	}
+	
+	@AfterThrowing(value= "pointCutMethod()", throwing = "ex")
+	public void afterThrowingAdvice(JoinPoint joinPoint, Throwable ex) {
+	    logger.info("切面 AopAspect.afterThrowiungAdvice() -> @AfterThrowing通知，在方法發生異常時才調用，被切的方法名稱：" + joinPoint.getSignature().getName());
+	    logger.info("切面 AopAspect.afterThrowiungAdvice() -> @AfterThrowing通知，異常例外：" + ex);
 	}
 }
