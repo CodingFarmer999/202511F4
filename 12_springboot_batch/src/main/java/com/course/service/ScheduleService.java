@@ -26,8 +26,8 @@ public class ScheduleService {
     @Autowired
     private Job job;
     
-//    @Scheduled(fixedRate = 2000)
-    // @Scheduled(cron = "0/5 * * * * ?")
+    //@Scheduled(fixedRate = 2000)
+    //@Scheduled(cron = "0/5 * * * * ?")
     public void repeatSecond() {
         logger.info(dateFormat.format(new Date()));
     }
