@@ -14,6 +14,7 @@ import org.springframework.batch.item.file.LineMapper;
 import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
+import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -99,12 +100,26 @@ public class CsvToDbBatchConfiguration {
                 .build();
     }
     
+    @Bean
+    Step cleanupStep(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
+        return new StepBuilder("cleanupStep", jobRepository)
+            .tasklet((contribution, chunkContext) -> {
+                // 刪除舊檔案、初始化目錄
+                System.out.println("清理完成");
+                personRepository.deleteAllInBatch();
+                return RepeatStatus.FINISHED;
+            }, transactionManager)
+            .build();
+    }
+    
 	// Job
     @Bean
-    Job personJob(JobRepository jobRepository, Step step1) {
+    Job personJob(JobRepository jobRepository, Step step1, Step cleanupStep) {
         return new JobBuilder("personJob", jobRepository)
-                .start(step1)
+                //.start(step1)
                 // .next(step2)
+        		.start(cleanupStep)
+        		.next(step1)
                 // step2
                 // step3
                 .build();
