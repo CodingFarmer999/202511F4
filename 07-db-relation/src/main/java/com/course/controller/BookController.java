@@ -19,6 +19,7 @@ import com.course.exception.ActionException;
 import com.course.service.BookService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.Valid;
 
 @RestController
 public class BookController {
@@ -55,7 +56,7 @@ public class BookController {
 	
 	@Operation(summary = "新增門市", description = "新增門市")
 	@PostMapping("/store")
-	public void insertStore(@RequestBody StoreDto dto) {
+	public void insertStore(@RequestBody @Valid StoreDto dto) {
 		bookService.insertStore(dto);
 	}
 	
