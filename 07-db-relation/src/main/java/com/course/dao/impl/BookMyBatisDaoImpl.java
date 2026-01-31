@@ -63,17 +63,27 @@ public class BookMyBatisDaoImpl implements BookDao {
 
 	@Override
 	// @Transactional
-	@Transactional(rollbackFor = {Exception.class})
+	@Transactional(rollbackFor = {Exception.class}, timeout = 5)
 	public void insertStore(StoreDto dto) throws FileNotFoundException {
 		bookMapper.insertStore(dto);
 		
 		// 強制設計一個 Exception
 		// Integer.parseInt("ABC");
 		
-		FileInputStream fis = new FileInputStream("aaaa.txt");
+//		FileInputStream fis = new FileInputStream("aaaa.txt");
 		bookMapper.insertStoreProfile(dto);
 		
 	}
+	
+	public void testPrivateInsertOuter(StoreDto dto) throws FileNotFoundException {
+		testPrivateInsert(dto);
+	}
+	
+	@Transactional(rollbackFor = {Exception.class}, timeout = 5)
+	private void testPrivateInsert(StoreDto dto) throws FileNotFoundException {
+		// INSERT ...
+	}
+	
 
 	@Override
 	public List<StoreDto> findStoreByCondition(StoreDto dto) {
