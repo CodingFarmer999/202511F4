@@ -1,5 +1,7 @@
 package com.course.aspect;
 
+import java.util.List;
+
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -10,6 +12,8 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+
+import com.course.dto.BookDto;
 
 @Component
 @Aspect
@@ -39,6 +43,13 @@ public class AopAspect {
 		Object obj = joinPoint.proceed();
 		
 		// 執行方法後，你想做甚麼
+		if (obj instanceof List<?>) {
+			List<?> resultList = (List<?>) obj;
+			if (resultList != null && resultList.size() > 0 && resultList.get(0) instanceof BookDto) {
+				BookDto vo = (BookDto)resultList.get(0);
+				vo.setName(vo.getName() + "!!!!!");
+			}
+		}
 		
 		Long end = System.currentTimeMillis();
 		
