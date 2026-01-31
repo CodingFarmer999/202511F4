@@ -19,12 +19,12 @@ public class GlobalControllerAdvice {
     public ResponseEntity<String> handleException(Exception e) {
     	// 寫log
     	logger.error("我是Runtime Exception");
-        return new ResponseEntity<>("An error occurred: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>("系統忙碌中，請稍後再試", HttpStatus.OK);
     }
     
     @ExceptionHandler(value = {ActionException.class})
     public ResponseEntity<String> handleActionException(ActionException e) {
      	logger.error("我是ActionException");
-        return new ResponseEntity<>("An error occurred: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>("下班了，明天請早", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
