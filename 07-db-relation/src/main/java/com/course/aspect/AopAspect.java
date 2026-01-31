@@ -1,7 +1,9 @@
 package com.course.aspect;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -28,5 +30,19 @@ public class AopAspect {
 	@After("execution(public * com.course.service.BookService.*(..))")
 	public void afterAdvice(JoinPoint joinPoint) {
 	    logger.info("切面 AopAspect.afterAdvice() -> @After通知，在方法調用之後才調用，被切的方法名稱：" + joinPoint.getSignature().getName());
+	}
+	
+	@Around("pointCutMethod()")
+	public Object aroundAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
+		// 執行方法前，要做的事情
+		Long start = System.currentTimeMillis();
+		Object obj = joinPoint.proceed();
+		
+		// 執行方法後，你想做甚麼
+		
+		Long end = System.currentTimeMillis();
+		
+		logger.info("方法執行時間: {} ms", end - start);
+		return obj;
 	}
 }
