@@ -70,4 +70,9 @@ public class AopAspect {
 	    logger.info("切面 AopAspect.afterThrowiungAdvice() -> @AfterThrowing通知，在方法發生異常時才調用，被切的方法名稱：" + joinPoint.getSignature().getName());
 	    logger.info("切面 AopAspect.afterThrowiungAdvice() -> @AfterThrowing通知，異常例外：" + ex);
 	}
+	
+	@After("execution(public * com.course.dao.BookDao.*(..))")
+	public void afterAdviceDao(JoinPoint joinPoint) {
+	    logger.info("##### 切面 AopAspect.afterAdviceDao() -> @After通知，在方法調用之後才調用，被切的方法名稱：" + joinPoint.getSignature().getName());
+	}
 }

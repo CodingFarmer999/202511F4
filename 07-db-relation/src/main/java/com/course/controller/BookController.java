@@ -59,6 +59,7 @@ public class BookController {
 	@Operation(summary = "查詢所有書籍", description = "查詢所有書籍")
 	@GetMapping("/books")
 	public List<BookDto> getAllBook() {
+		Integer.parseInt("ABC");
 		return bookService.findAllBook();
 	}
 	
